@@ -2,9 +2,15 @@
 
 ## 项目概述
 
-本项目收集和整理了截至2026年1月31日的主流开源音乐合成tokenizer相关论文和项目资源。涵盖Meta、Google、OpenAI等主要研究机构的重要工作。
+本项目收集和整理了截至2026年1月31日的主流开源音乐合成tokenizer相关论文和项目资源。涵盖Meta、Google、OpenAI等主要研究机构的重要工作。同时提供详细的技术方法综述和训练指南。
 
-## 主要研究方向
+## 📚 文档资源
+
+### 综述文档
+- **[SURVEY.md](SURVEY.md)** - HeartMuLa 与 MuCodec 论文深度分析
+- **[TRAINING_METHODS.md](TRAINING_METHODS.md)** - 完整的 Music Tokenizer 训练方法指南
+
+### 主要研究方向
 
 ### 音频Tokenizers (音频分词器)
 
@@ -86,13 +92,17 @@
 ```
 music-tokenizer-research/
 ├── README.md
+├── SURVEY.md                    # 论文综述
+├── TRAINING_METHODS.md          # 训练方法指南
 ├── papers/
 │   ├── musicgen.pdf
 │   ├── audiogen.pdf
 │   ├── encodec.pdf
 │   ├── soundstream.pdf
 │   ├── musicldm.pdf
-│   └── stemgen.pdf
+│   ├── stemgen.pdf
+│   ├── heartmula_2601.10547.pdf  # HeartMuLa 论文
+│   └── mucodec_2409.13216.pdf    # MuCodec 论文
 └── references/
 ```
 
