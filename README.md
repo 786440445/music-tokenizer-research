@@ -10,6 +10,30 @@
 - **[SURVEY.md](SURVEY.md)** - HeartMuLa 与 MuCodec 论文深度分析
 - **[TRAINING_METHODS.md](TRAINING_METHODS.md)** - 完整的 Music Tokenizer 训练方法指南
 
+### 单篇论文概述 (papers/)
+
+**基础编解码器**:
+- [EnCodec (2210.13438)](./papers/README-2210.13438-EnCodec.md) - Meta 高保真神经音频压缩
+- [SoundStream (2107.03312)](./papers/README-2107.03312-SoundStream.md) - Google 端到端神经编解码器
+- [MuCodec (2409.13216)](./papers/README-2409.13216-MuCodec.md) - 超低比特率音乐编解码器
+- [Semantic-Codec (2504.10344)](./papers/README-2504.10344-Semantic-Codec.md) - 语义丰富低比特率编解码器
+- [HeartCodec (in HeartMuLa)](./papers/README-2601.10547-HeartMuLa.md) - 12.5 Hz 超低帧率编解码器
+
+**音乐生成模型**:
+- [MusicGen (2306.05284)](./papers/README-2306.05284-MusicGen.md) - Meta 简单可控音乐生成
+- [AudioGen (2209.15352)](./papers/README-2209.15352-AudioGen.md) - Meta 文本引导音频生成
+- [MusicLDM (2308.01546)](./papers/README-2308.01546-MusicLDM.md) - 基于 LDM 的音乐生成
+- [StemGen (2312.08723)](./papers/README-2312.08723-StemGen.md) - 上下文感知多轨道生成
+- [HeartMuLa (2601.10547)](./papers/README-2601.10547-HeartMuLa.md) - 开源音乐基础模型家族
+
+**语音与多模态**:
+- [Qwen3-TTS (2601.15621)](./papers/README-2601.15621-Qwen3-TTS.md) - 阿里云先进 TTS 模型
+- [Ming-Omni (2506.09344)](./papers/README-2506.09344-Ming-Omni.md) - 统一多模态感知与生成
+
+---
+
+**总览**: 当前 `papers/` 目录包含 **13 篇核心论文**，涵盖音频编解码器、音乐生成、语音合成、多模态 AI 四大方向。
+
 ### 主要研究方向
 
 ### 音频Tokenizers (音频分词器)
@@ -81,15 +105,15 @@
 - **作者**: Dongchao Yang 等 25 位作者
 - **arXiv**: [2601.10547](https://arxiv.org/abs/2601.10547)
 - **核心贡献**: 开源音乐基础模型家族；包含 HeartCodec (12.5 Hz 低帧率高保真编解码器)、HeartCLAP (音频-文本对齐)、HeartTranscriptor (歌词识别)、HeartMuLa (LLM歌曲生成)；6分钟长音乐生成；细粒度风格控制
-- **本地文件**: [papers/heartmula_2601.10547.pdf](./papers/heartmula_2601.10547.pdf) (已存在)
+- **本地文件**: [papers/heartmula_2601.10547.pdf](./papers/heartmula_2601.10547.pdf)
 - **代码**: 待开源
 
 ### 10. Semantic-Codec - A Low-bitrate and Semantic-rich Audio Codec Tokenizer
-- **作者**: Dongchao Yang, Songxiang Liu, Haohan Guo 等
+- **作者**: Dongchao Yang, Songxiang Liu, Haohan Guo 等 (HeartMuLa 团队)
 - **arXiv**: [2504.10344](https://arxiv.org/abs/2504.10344)
-- **核心贡献**: 用于音频语言建模的低比特率、语义丰富的音频编解码器 tokenizer；声学与语义特征解耦；Flow-Matching 重建策略；在超低比特率下保持高质量
+- **核心贡献**: 用于音频语言建模的低比特率、语义丰富的音频编解码器 tokenizer；声学与语义特征解耦（MuEncoder + WavLM）；Flow-Matching 重建；超低比特率（0.35-1.33 kbps）下保持高质量
 - **本地文件**: [papers/music_tokenizer_2504.10344.pdf](./papers/music_tokenizer_2504.10344.pdf)
-- **相关**: HeartMuLa 团队前期工作
+- **相关**: HeartMuLa 的 tokenizer 基础工作
 
 ## 相关开源项目
 
@@ -185,19 +209,43 @@
 ```
 music-tokenizer-research/
 ├── README.md
-├── SURVEY.md                    # 论文综述
-├── TRAINING_METHODS.md          # 训练方法指南
+├── SURVEY.md                               # 论文综述（HeartMuLa + MuCodec）
+├── TRAINING_METHODS.md                     # 训练方法指南
 ├── papers/
-│   ├── musicgen.pdf
-│   ├── audiogen.pdf
-│   ├── encodec.pdf
-│   ├── soundstream.pdf
-│   ├── musicldm.pdf
-│   ├── stemgen.pdf
-│   ├── heartmula_2601.10547.pdf  # HeartMuLa 论文
-│   └── mucodec_2409.13216.pdf    # MuCodec 论文
-└── references/
+│   ├── PDF 文件 (原始论文):
+│   │   ├── musicgen.pdf                  # MusicGen (2306.05284)
+│   │   ├── audiogen.pdf                  # AudioGen (2209.15352)
+│   │   ├── encodec.pdf                   # EnCodec (2210.13438)
+│   │   ├── soundstream.pdf               # SoundStream (2107.03312)
+│   │   ├── musicldm.pdf                  # MusicLDM (2308.01546)
+│   │   ├── stemgen.pdf                   # StemGen (2312.08723)
+│   │   ├── ming_omni_2506.09344.pdf      # Ming-Omni
+│   │   ├── qwen3_tts_2601.15621.pdf      # Qwen3-TTS
+│   │   ├── semantic_codec_2504.10344.pdf # Semantic-Codec
+│   │   ├── heartmula_2601.10547.pdf      # HeartMuLa
+│   │   └── mucodec_2409.13216.pdf        # MuCodec
+│   │
+│   └── README 文件 (详细概述):
+│       ├── README-2210.13438-EnCodec.md
+│       ├── README-2107.03312-SoundStream.md
+│       ├── README-2409.13216-MuCodec.md
+│       ├── README-2504.10344-Semantic-Codec.md
+│       ├── README-2506.09344-Ming-Omni.md
+│       ├── README-2601.10547-HeartMuLa.md
+│       ├── README-2601.15621-Qwen3-TTS.md
+│       ├── README-2306.05284-MusicGen.md
+│       ├── README-2209.15352-AudioGen.md
+│       ├── README-2308.01546-MusicLDM.md
+│       └── README-2312.08723-StemGen.md
+│
+└── references/ (待补充)
 ```
+
+**论文时间线**：
+- 2024-09: MuCodec (2409.13216)
+- 2025-04: Semantic-Codec (2504.10344)
+- 2025-06: Ming-Omni (2506.09344)
+- 2026-01: HeartMuLa (2601.10547) + Qwen3-TTS (2601.15621)
 
 ## 贡献指南
 
